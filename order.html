@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Now | Fresh Grocery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.order-container{
+    background:#ffffff;
+    width:100%;
+    max-width:420px;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.1);
+}
+
+.order-container h1{
+    text-align:center;
+    color:#16a34a;
+    margin-bottom:6px;
+}
+
+.order-container p{
+    text-align:center;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:14px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #cbd5e1;
+    font-size:14px;
+}
+
+textarea{
+    resize:none;
+    height:70px;
+}
+
+select[multiple]{
+    height:90px;
+}
+
+small{
+    color:#64748b;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#15803d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="order-container">
+    <h1>🛒 Order Now</h1>
+    <p>Fresh groceries delivered fast</p>
+
+    <form id="orderForm">
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="phone" placeholder="10-digit number" required>
+        </div>
+
+        <div class="input-group">
+            <label>Delivery Address</label>
+            <textarea id="address" required></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Select Items</label>
+            <select id="items" multiple required>
+                <option>Tomato</option>
+                <option>Potato</option>
+                <option>Onion</option>
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Milk</option>
+                <option>Rice</option>
+                <option>Wheat</option>
+            </select>
+            <small>Hold Ctrl to select multiple items</small>
+        </div>
+
+        <div class="input-group">
+            <label>Payment Method</label>
+            <select id="payment" required>
+                <option value="">-- Select Payment --</option>
+                <option>Cash on Delivery</option>
+                <option>UPI</option>
+                <option>Debit / Credit Card</option>
+            </select>
+        </div>
+
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const phone = document.getElementById("phone").value;
+
+    if(phone.length !== 10 || isNaN(phone)){
+        alert("Please enter a valid 10-digit mobile number");
+        return;
+    }
+
+    // Redirect to success page
+    window.location.href = "placeorder.html";
+});
+</script>
+
+</body>
+</html>
